@@ -1,0 +1,29 @@
+server:
+  port: 8088
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/dispositivo?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    username: root
+    password: root
+  rabbitmq:
+    request:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+      exchenge:
+        producer: ex.producer.pr-log
+      routing-key:
+        producer: rk.producer.pr-log
+      dead-letter:
+        producer: dl.producer.pr-log
+
